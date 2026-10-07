@@ -1,3 +1,32 @@
+# claude-plugins for T3 Code
+
+A fork of [centminmod/claude-plugins](https://github.com/centminmod/claude-plugins) set up for the
+[T3 Code](https://github.com/pingdotgg/t3code) desktop app on macOS. Its
+[`desktop-statusline`](plugins/desktop-statusline) mod draws a status band above the prompt (git
+state, context meter, session cost, 5-hour and weekly limit meters, last-turn stats) in T3 Code,
+which needs [t3-mods](https://github.com/codeclawd/t3-mods) to draw Claude Code plugin UI.
+
+**Set it up with one prompt.** Give your coding agent this repo and say:
+
+> Set up desktop-statusline in T3 Code by following AGENTS.md in https://github.com/codeclawd/claude-plugins
+
+[AGENTS.md](AGENTS.md) installs t3-mods, adds this marketplace (`t3-desktop`) and the plugin, and
+then asks you to restart T3 Code yourself.
+
+By hand:
+
+```sh
+git clone https://github.com/codeclawd/t3-mods.git ~/t3-mods && ~/t3-mods/bin/t3-mods install
+claude plugin marketplace add codeclawd/claude-plugins
+claude plugin install desktop-statusline@t3-desktop --config cache_ttl=1h
+```
+
+Then quit and reopen T3 Code. The plugins are George Liu's, unchanged; this fork adds the T3 setup
+and renames the marketplace to `t3-desktop` so it doesn't clash with the original `centminmod`.
+The upstream README follows.
+
+---
+
 # centminmod / claude-plugins
 
 - Site: <https://ai.georgeliu.com/p/claude-plugins>
